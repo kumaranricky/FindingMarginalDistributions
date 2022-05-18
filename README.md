@@ -27,8 +27,46 @@ Correlation coefficients are indicators of the strength of the linear relationsh
 
 # Program
 
+```python
+# Developed by:Kumaran.B
+# Reg no:212220230026
+import math
+import numpy as np
+p = [[0,0.01,0.03,0.05,0.07,0.09],
+    [0.01,0.02,0.04,0.05,0.06,0.08],
+     [0.01,0.03,0.05,0.05,0.05,0.06],
+    [0.01,0.02,0.04,0.06,0.06,0.05]]
+px=np.sum(p,axis=0)
+py=np.sum(p,axis=1)
+x=[0,1,2,3,4,5]
+ex=np.inner(x,px)
+y=[0,1,2,3]
+ey=np.inner(y,py)
+ex2=np.inner(np.square(x),px)
+ey2=np.inner(np.square(y),py)
+vx=ex2-ex**2
+sx=math.sqrt(vx)
+vy=ey2-ey**2
+sy=math.sqrt(vy)
+exy=0
+for i in range(4):
+    for j in range(6):
+        exy=exy+x[j]*y[i]*p[i][j]
+cov=exy-ex*ey
+r=cov/(sx*sy)
+import pandas as pd
+pdf_df=pd.DataFrame(p)
+display(pdf_df)
+print("Variance of X:\t\t\t\t",vx)
+print("Variance of Y:\t\t\t\t",vy)
+print("Standard deviation of X:\t\t",sx)
+print("Standard deviation of Y:\t\t",sy)
+print("Covariance:\t\t\t\t",cov.round(4))
+print("Covariance Coefficient of Corelation:\t",r.round(4))
+```
+# Output : 
+![Screenshot (190)](https://user-images.githubusercontent.com/75243072/168965836-65e1fd0b-1d5c-4f2c-982d-9fca4dfac315.png)
 
-
-
-# Results and Output : 
+# Result:
+Thus,the program is implemented on Marginal distributions and correation coefficient.
 
